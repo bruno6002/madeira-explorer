@@ -320,7 +320,12 @@ body {
 }
 
 /* Desktop: Divide em 8 colunas para texto e 4 para sidebar */
-@media (min-width: 768px) {
+/* --- VERSÃO NOVA (Substitua por isto) --- */
+@media (width >= 768px) {
+    /* Mantenha o conteúdo que lá estava dentro */
+    .destaques {
+        grid-template-columns: repeat(3, 1fr);
+    }
     .details-content { grid-column: span 8; }
     .booking-sidebar { grid-column: span 4; position: sticky; top: 100px; }
 }
