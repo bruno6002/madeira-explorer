@@ -3,50 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Madeira Explorer - Protótipo</title>
+    <title>Madeira Explorer - Turismo & Experiências</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
     <header class="main-header">
-        <div class="logo">Madeira Explorer</div>
-        <nav>
+        <div class="logo-container">
+            <i class="fa-solid fa-leaf"></i>
+            <span>Madeira Explorer</span>
+        </div>
+        <nav class="main-nav">
             <ul>
-                <li><a href="#">Início</a></li>
-                <li><a href="#">Experiências</a></li>
-                <li><a href="#">Roteiro</a></li>
+                <li><a href="#" class="active">Início</a></li>
+                <li><a href="#">Explorar</a></li>
+                <li><a href="#">Inspiração</a></li>
+                <li><a href="#">O Meu Roteiro</a></li>
             </ul>
         </nav>
+        <div class="user-actions">
+            <button class="icon-btn"><i class="fa-regular fa-heart"></i></button>
+            <button class="icon-btn"><i class="fa-solid fa-cart-shopping"></i></button>
+            <button class="login-btn">Entrar</button>
+        </div>
     </header>
 
-    <main class="grid-container">
+    <main class="grid-layout">
         
-        <section class="hero">
-            <h1>Descubra a Madeira</h1>
-            <p>O seu marketplace de experiências turísticas.</p>
-            <button>Pesquisar Atividades</button>
+        <section class="hero full-width">
+            <div class="hero-content">
+                <h1>A Madeira espera por si.</h1>
+                <p>Reserve experiências únicas com locais.</p>
+                <div class="search-bar">
+                    <input type="text" placeholder="O que procura fazer?">
+                    <button>Pesquisar</button>
+                </div>
+            </div>
         </section>
 
-        <section class="destaques">
-            <h2>Destaques</h2>
-            <div class="card">
-                <h3>Pico do Arieiro</h3>
-                <p>Nascer do sol acima das nuvens.</p>
+        <section class="categories">
+            <h2>Categorias</h2>
+            <div class="cat-grid">
+                <div class="card-cat">Levadas</div>
+                <div class="card-cat">Mar</div>
+                <div class="card-cat">Gastronomia</div>
+                <div class="card-cat">Cultura</div>
             </div>
-            <div class="card">
-                <h3>Levada das 25 Fontes</h3>
-                <p>Caminhada pela natureza.</p>
-            </div>
-            <div class="card">
-                <h3>Porto Santo</h3>
-                <p>A ilha dourada.</p>
+        </section>
+
+        <section class="featured full-width">
+            <h2>Melhores Experiências</h2>
+            <div class="products-grid">
+                <article class="product-card">
+                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1629232386866-248792031a08?auto=format&fit=crop&w=800')"></div>
+                    <div class="card-content">
+                        <h3>Nascer do Sol no Arieiro</h3>
+                        <p class="price">35€ <span class="sub-text">/ pessoa</span></p>
+                        <button class="btn-reserva">Ver Detalhes</button>
+                    </div>
+                </article>
+                
+                <article class="product-card">
+                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1548695029-796d19485b01?auto=format&fit=crop&w=800')"></div>
+                    <div class="card-content">
+                        <h3>Observação de Golfinhos</h3>
+                        <p class="price">45€ <span class="sub-text">/ pessoa</span></p>
+                        <button class="btn-reserva">Ver Detalhes</button>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1621849400072-f554417f7051?auto=format&fit=crop&w=800')"></div>
+                    <div class="card-content">
+                        <h3>Levada das 25 Fontes</h3>
+                        <p class="price">28€ <span class="sub-text">/ pessoa</span></p>
+                        <button class="btn-reserva">Ver Detalhes</button>
+                    </div>
+                </article>
             </div>
         </section>
 
     </main>
 
-    <footer>
-        <p>&copy; 2026 Madeira Explorer - Trabalho de Design Hipermédia</p>
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Madeira Explorer - Projeto Académico</p>
+        </div>
     </footer>
 
 </body>

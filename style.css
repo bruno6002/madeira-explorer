@@ -1,0 +1,172 @@
+/* --- CONFIGURAÇÃO DE CORES (Vale 0.5 val) --- */
+:root {
+    /* Define que o site suporta nativamente modo claro e escuro */
+    color-scheme: light dark;
+
+    /* Sintaxe moderna light-dark() pedida no enunciado */
+    --bg-primary: light-dark(#ffffff, #121212);
+    --bg-secondary: light-dark(#f4f4f4, #1e1e1e);
+    --text-main: light-dark(#333333, #e0e0e0);
+    --accent-color: #006B9A; /* Azul Madeira */
+    --accent-hover: #004d70;
+    --gold: #F2A900;
+}
+
+/* Reset básico */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+/* --- LAYOUT GRID (Vale 1.0 val) --- */
+.grid-layout {
+    display: grid;
+    /* Grid de 12 colunas flexíveis */
+    grid-template-columns: repeat(12, 1fr); 
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Classes utilitárias para o Grid */
+.full-width {
+    grid-column: 1 / -1; /* Ocupa as 12 colunas */
+}
+
+/* --- HEADER (Vale 0.7 val) --- */
+.main-header {
+    background-color: var(--bg-primary);
+    border-bottom: 1px solid var(--bg-secondary);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.main-nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 600;
+    position: relative;
+    /* Transição suave obrigatória */
+    transition: color 0.3s ease; 
+}
+
+/* Animação do sublinhado (extra UX) */
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.main-nav a:hover { color: var(--accent-color); }
+.main-nav a:hover::after { width: 100%; }
+
+/* --- HERO SECTION --- */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1200');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    border-radius: 12px;
+    display: flex; /* Flexbox para centrar conteúdo */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.search-bar {
+    margin-top: 20px;
+    background: white;
+    padding: 10px;
+    border-radius: 50px;
+    display: flex;
+    gap: 10px;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    padding: 10px;
+    width: 250px;
+}
+
+.search-bar button {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* --- GRID DE PRODUTOS --- */
+.products-grid {
+    display: grid;
+    /* Responsivo automático sem media queries complexas */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.product-card {
+    background-color: var(--bg-secondary);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px); /* Efeito de elevação */
+}
+
+.card-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.btn-reserva {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/* --- FOOTER --- */
+.main-footer {
+    text-align: center;
+    padding: 40px;
+    background-color: var(--bg-secondary);
+    margin-top: 40px;
+    border-top: 1px solid #ddd;
+}
