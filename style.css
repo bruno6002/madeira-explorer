@@ -389,3 +389,30 @@ details p {
     border-radius: 5px;
     margin-top: 5px;
 }
+
+
+/* --- PÁGINA 404 (Vale 0.5 val) --- */
+
+.error-container {
+    height: 70vh; /* Ocupa 70% da altura do ecrã */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: radial-gradient(circle, var(--bg-secondary) 0%, var(--bg-primary) 70%);
+}
+
+.error-code {
+    font-size: 8rem; /* Texto gigante */
+    font-weight: 900;
+    color: var(--accent-color);
+    margin: 0;
+    line-height: 1;
+    opacity: 0.2; /* Ligeiramente transparente */
+}
+
+.error-content h2 {
+    margin-top: -20px;
+    font-size: 2rem;
+    color: var(--text-main);
+}
