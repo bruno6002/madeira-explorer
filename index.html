@@ -11,21 +11,29 @@
 
     <header class="main-header">
         <div class="logo-container">
-            <i class="fa-solid fa-leaf"></i>
-            <span>Madeira Explorer</span>
+            <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
+                <i class="fa-solid fa-leaf text-madeira"></i>
+                <span>Madeira Explorer</span>
+            </a>
         </div>
+
+        <div class="hamburger">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
         <nav class="main-nav">
             <ul>
-                <li><a href="#" class="active">Início</a></li>
-                <li><a href="#">Explorar</a></li>
-                <li><a href="#">Inspiração</a></li>
-                <li><a href="#">O Meu Roteiro</a></li>
+                <li><a href="index.html" class="active">Início</a></li>
+                <li><a href="#experiencias">Explorar</a></li>
+                <li><a href="#inspiracao">Inspiração</a></li>
+                <li><a href="login.html">O Meu Roteiro</a></li>
+                <li class="mobile-only"><a href="login.html">Entrar</a></li>
             </ul>
         </nav>
+
         <div class="user-actions">
-            <button class="icon-btn"><i class="fa-regular fa-heart"></i></button>
-            <button class="icon-btn"><i class="fa-solid fa-cart-shopping"></i></button>
-            <a href="login.html" class="login-btn" style="text-decoration:none; background:var(--accent-color); color:white; padding:8px 15px; border-radius:5px;">Entrar</a>
+            <button class="icon-btn" aria-label="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <a href="login.html" class="login-btn">Entrar</a>
         </div>
     </header>
 
@@ -42,58 +50,90 @@
             </div>
         </section>
 
-        <section class="categories">
+        <section class="categories full-width">
             <h2>Categorias</h2>
             <div class="cat-grid">
-                <div class="card-cat">Levadas</div>
-                <div class="card-cat">Mar</div>
-                <div class="card-cat">Gastronomia</div>
-                <div class="card-cat">Cultura</div>
+                <div class="card-cat"><i class="fa-solid fa-person-hiking"></i> Levadas</div>
+                <div class="card-cat"><i class="fa-solid fa-ship"></i> Mar</div>
+                <div class="card-cat"><i class="fa-solid fa-utensils"></i> Gastronomia</div>
+                <div class="card-cat"><i class="fa-solid fa-landmark"></i> Cultura</div>
             </div>
         </section>
 
-        <section class="featured full-width">
+        <section class="featured full-width" id="experiencias">
             <h2>Melhores Experiências</h2>
-          <div class="products-grid">
-    <article class="product-card">
-        <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1629232386866-248792031a08?auto=format&fit=crop&w=800')"></div>
-        <h3 class="card-title">Nascer do Sol no Arieiro</h3>
-        <p class="card-desc">Uma experiência única acima das nuvens com guia certificado.</p>
-        <div class="card-meta">
-            <span class="price">35€</span>
-            <a href="detalhe.html" class="btn-reserva" style="text-decoration:none; display:inline-block; text-align:center;">Ver Detalhes</a>
-        </div>
-    </article>
-    
-    <article class="product-card">
-        <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1548695029-796d19485b01?auto=format&fit=crop&w=800')"></div>
-        <h3 class="card-title">Observação de Golfinhos</h3>
-        <p class="card-desc">Passeio de catamarã para ver a vida marinha.</p>
-        <div class="card-meta">
-            <span class="price">45€</span>
-            <button class="btn-reserva">Ver Detalhes</button>
-        </div>
-    </article>
+            <div class="products-grid">
+                <article class="product-card">
+                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1629232386866-248792031a08?auto=format&fit=crop&w=800')"></div>
+                    <h3 class="card-title">Nascer do Sol no Arieiro</h3>
+                    <p class="card-desc">Uma experiência única acima das nuvens com guia certificado.</p>
+                    <div class="card-meta">
+                        <span class="price">35€</span>
+                        <a href="detalhe.html" class="btn-reserva" style="text-decoration:none; display:inline-block; text-align:center;">Ver Detalhes</a>
+                    </div>
+                </article>
+                
+                <article class="product-card">
+                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1548695029-796d19485b01?auto=format&fit=crop&w=800')"></div>
+                    <h3 class="card-title">Observação de Golfinhos</h3>
+                    <p class="card-desc">Passeio de catamarã para ver a vida marinha.</p>
+                    <div class="card-meta">
+                        <span class="price">45€</span>
+                        <button class="btn-reserva">Ver Detalhes</button>
+                    </div>
+                </article>
 
-    <article class="product-card">
-        <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1621849400072-f554417f7051?auto=format&fit=crop&w=800')"></div>
-        <h3 class="card-title">Levada das 25 Fontes e Risco</h3>
-        <p class="card-desc">A caminhada mais famosa da ilha através da floresta Laurissilva.</p>
-        <div class="card-meta">
-            <span class="price">28€</span>
-            <button class="btn-reserva">Ver Detalhes</button>
-        </div>
-    </article>
-</div>
+                <article class="product-card">
+                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1621849400072-f554417f7051?auto=format&fit=crop&w=800')"></div>
+                    <h3 class="card-title">Levada das 25 Fontes</h3>
+                    <p class="card-desc">A caminhada mais famosa da ilha através da floresta Laurissilva.</p>
+                    <div class="card-meta">
+                        <span class="price">28€</span>
+                        <button class="btn-reserva">Ver Detalhes</button>
+                    </div>
+                </article>
+            </div>
         </section>
 
     </main>
 
     <footer class="main-footer">
-        <div class="footer-content">
-            <p>&copy; 2026 Madeira Explorer - Projeto Académico</p>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>Madeira Explorer</h3>
+                <p>O seu guia local para as melhores experiências na Ilha da Madeira e Porto Santo.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="#">Sobre Nós</a></li>
+                    <li><a href="#">Contactos</a></li>
+                    <li><a href="404.html">Termos</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Social</h4>
+                <div class="social-icons">
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copy">
+            <p>&copy; 2026 Madeira Explorer - Design Hipermédia</p>
         </div>
     </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('.main-nav');
+
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+    </script>
 
 </body>
 </html>

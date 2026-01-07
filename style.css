@@ -421,3 +421,86 @@ details p {
     font-size: 2rem;
     color: var(--text-main);
 }
+
+
+/* --- MENU MOBILE & RESPONSIVIDADE (Vale 1.0 val) --- */
+
+/* Esconde elementos Mobile por defeito (Desktop) */
+.hamburger { display: none; }
+.mobile-only { display: none; }
+
+/* Estilos do Footer Rico */
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    text-align: left;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-col h4 { color: var(--accent-color); margin-bottom: 15px; }
+.footer-col ul { list-style: none; }
+.footer-col a { text-decoration: none; color: var(--text-main); }
+.footer-col a:hover { color: var(--accent-color); }
+.social-icons { display: flex; gap: 15px; font-size: 1.5rem; }
+
+/* --- MEDIA QUERY: TABLETS E TELEMÓVEIS --- */
+/* Range Syntax moderna (width < 768px) */
+@media (width < 768px) {
+    
+    /* Mostrar o Hambúrguer */
+    .hamburger {
+        display: block;
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: var(--text-main);
+    }
+
+    /* Esconder ações de utilizador desktop */
+    .user-actions { display: none; }
+    
+    /* Transformar o Menu num "Drawer" lateral */
+    .main-nav {
+        position: fixed;
+        top: 70px; /* Altura do header */
+        left: -100%; /* Escondido fora do ecrã à esquerda */
+        width: 100%;
+        height: calc(100vh - 70px);
+        background-color: var(--bg-primary);
+        transition: left 0.3s ease;
+        border-top: 1px solid #ddd;
+        padding: 20px;
+    }
+
+    /* Classe que o JavaScript adiciona para abrir o menu */
+    .main-nav.active {
+        left: 0; /* Traz para o ecrã */
+    }
+
+    .main-nav ul {
+        flex-direction: column; /* Lista vertical */
+        align-items: center;
+        gap: 30px;
+    }
+
+    .main-nav a {
+        font-size: 1.2rem;
+    }
+
+    .mobile-only { display: block; }
+    
+    /* Ajustes de Grid para mobile */
+    .cat-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .card-cat {
+        background: var(--bg-secondary);
+        padding: 15px;
+        text-align: center;
+        border-radius: 8px;
+    }
+}
