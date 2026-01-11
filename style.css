@@ -633,3 +633,21 @@ html.dark-mode .search-bar input {
 html.dark-mode .search-bar input::placeholder {
     color: #aaa;
 }
+
+
+/* --- CORREÇÃO DO MENU HAMBÚRGUER --- */
+
+/* Por defeito (Desktop), o hambúrguer NÃO aparece */
+.hamburger {
+    display: none !important; /* O !important garante que esta regra manda */
+}
+
+/* Apenas em ecrãs pequenos (Telemóvel/Tablet) ele deve aparecer */
+@media (width < 768px) {
+    .hamburger {
+        display: block !important;
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: var(--text-main);
+    }
+}
