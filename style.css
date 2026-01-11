@@ -574,3 +574,62 @@ html.dark-mode .card-cat {
 html.dark-mode .card-cat:hover {
     background-color: #2c2c2c;
 }
+
+
+/* --- CORREÇÃO FINAL DA BARRA DE PESQUISA --- */
+
+/* 1. O contentor (a "cápsula" arredondada) */
+.search-bar {
+    /* Modo Claro: Branco quase opaco */
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    padding: 6px 6px 6px 25px; /* Espaço confortável à esquerda */
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Botão encostado à direita */
+    max-width: 600px; /* Largura máxima bonita */
+    margin: 30px auto 0 auto; /* Centrar no ecrã */
+    border: 4px solid rgba(255,255,255,0.2); /* Borda de vidro */
+    transition: all 0.3s ease;
+}
+
+/* 2. O campo de escrita (Input) */
+.search-bar input {
+    border: none;
+    background: transparent !important; /* TRUQUE: Remove o fundo preto feio */
+    outline: none;
+    font-size: 1.1rem;
+    width: 100%;
+    color: #333; /* Cor do texto no modo claro */
+    padding: 0; /* Remove padding extra que desalinhava */
+}
+
+/* Placeholder (texto de ajuda) */
+.search-bar input::placeholder {
+    color: #888;
+}
+
+/* 3. O botão azul */
+.search-bar button {
+    padding: 12px 35px; /* Botão mais largo */
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 107, 154, 0.3); /* Sombra azulada */
+}
+
+/* --- VERSÃO DARK MODE DA BARRA --- */
+html.dark-mode .search-bar {
+    /* Fica cinzento escuro em vez de branco */
+    background: rgba(40, 40, 40, 0.95);
+    border-color: rgba(255,255,255,0.05);
+}
+
+html.dark-mode .search-bar input {
+    color: white !important; /* Texto passa a branco */
+}
+
+html.dark-mode .search-bar input::placeholder {
+    color: #aaa;
+}
