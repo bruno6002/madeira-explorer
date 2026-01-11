@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Meu Carrinho - Madeira Explorer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo-container">
+            <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
+                <i class="fa-solid fa-arrow-left"></i> <span>Voltar a Explorar</span>
+            </a>
+        </div>
+        <div class="logo-center" style="font-weight:bold; font-size:1.2rem;">Meu Carrinho</div>
+        <div class="user-actions"></div> </header>
+
+    <main class="grid-layout" style="min-height: 60vh;">
+        
+        <div class="full-width">
+            <h1>Itens no Carrinho</h1>
+            
+            <div id="lista-carrinho" style="margin-top: 20px;">
+                <p>O seu carrinho está vazio...</p>
+            </div>
+
+            <div id="checkout-area" style="margin-top: 40px; text-align: right; display: none;">
+                <h2 style="margin-bottom: 10px;">Total: <span id="total-price" style="color: var(--accent-color);">0€</span></h2>
+                <button onclick="finalizarCompra()" class="btn-reserva" style="padding: 15px 30px; font-size: 1.1rem;">
+                    Finalizar Compra <i class="fa-solid fa-check"></i>
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="main-footer"><p>&copy; 2026 Madeira Explorer</p></footer>
+
+    <script>
+        // FUNÇÃO PARA CARREGAR O CARRINHO
+        function carregarCarrinho() {
+            // Ler a memória
+            const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+            const lista = document.getElementById('lista-carrinho');
+            const checkoutArea = document.getElementById('checkout-area');
+            const totalEl = document.getElementById('total-price');
+
+            if (carrinho.length === 0) {
+                lista.innerHTML = '<p style="text-align:center; padding: 40px; color: #666;">O carrinho está vazio.</p>';
+                checkoutArea.style.display = 'none';
+                return;
+            }
+
+            // Limpar lista e gerar HTML
+            lista.innerHTML = '';
+            let total = 0;
+
+            carrinho.forEach((item, index) => {
+                total += parseInt(item.preco); // Somar preço
+
+                const itemDiv = document.createElement('div');
+                itemDiv.style.cssText = 'display: flex; gap: 20px; align-items: center; background: var(--bg-secondary); padding: 15px; margin-bottom: 15px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);';
+                
+                itemDiv.innerHTML = `
+                    <img src="${item.imagem}" style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px;">
+                    <div style="flex-grow: 1;">
+                        <h3 style="margin: 0; font-size: 1.1rem;">${item.nome}</h3>
+                        <p style="margin: 5px 0 0 0; color: #666;">${item.data ? 'Data: ' + item.data : 'Data a definir'}</p>
+                    </div>
+                    <div style="text-align: right;">
+                        <div style="font-weight: bold; font-size: 1.2rem; color: var(--accent-color);">${item.preco}€</div>
+                        <button onclick="removerItem(${index})" style="background: none; border: none; color: red; cursor: pointer; margin-top: 5px;">
+                            <i class="fa-solid fa-trash"></i> Remover
+                        </button>
+                    </div>
+                `;
+                lista.appendChild(itemDiv);
+            });
+
+            // Atualizar Total e Mostrar Botão
+            totalEl.innerText = total + '€';
+            checkoutArea.style.display = 'block';
+        }
+
+        // FUNÇÃO PARA REMOVER ITEM
+        function removerItem(index) {
+            let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+            carrinho.splice(index, 1); // Remove o item da lista
+            localStorage.setItem('carrinho', JSON.stringify(carrinho)); // Guarda a nova lista
+            carregarCarrinho(); // Atualiza a tela
+        }
+
+        // FUNÇÃO FINALIZAR (Simulação)
+        function finalizarCompra() {
+            alert('Obrigado pela sua reserva! O protótipo termina aqui.');
+            localStorage.removeItem('carrinho'); // Limpa o carrinho
+            window.location.href = 'index.html';
+        }
+
+        // Iniciar
+        carregarCarrinho();
+    </script>
+</body>
+</html>

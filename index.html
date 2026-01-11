@@ -36,7 +36,14 @@
                 <i class="fa-solid fa-moon"></i>
             </button>
     
-            <button class="icon-btn" aria-label="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <a href="favoritos.html" class="icon-btn" style="text-decoration:none; color:inherit;">
+                <i class="fa-regular fa-heart"></i>
+            </a>
+
+            <a href="carrinho.html" class="icon-btn" style="text-decoration:none; color:inherit;">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+
             <a href="login.html" class="login-btn">Entrar</a>
         </div>
     </header>
@@ -70,7 +77,6 @@
                 
                 <article class="product-card">
                     <img src="https://images.unsplash.com/photo-1629232386866-248792031a08?auto=format&fit=crop&w=800" alt="Nascer do Sol no Pico do Arieiro" class="card-image">
-                    
                     <h3 class="card-title">Nascer do Sol no Arieiro</h3>
                     <p class="card-desc">Uma experiência única acima das nuvens com guia certificado.</p>
                     <div class="card-meta">
@@ -81,7 +87,6 @@
                 
                 <article class="product-card">
                     <img src="https://images.unsplash.com/photo-1548695029-796d19485b01?auto=format&fit=crop&w=800" alt="Golfinhos no mar da Madeira" class="card-image">
-                    
                     <h3 class="card-title">Observação de Golfinhos</h3>
                     <p class="card-desc">Passeio de catamarã para ver a vida marinha.</p>
                     <div class="card-meta">
@@ -92,7 +97,6 @@
 
                 <article class="product-card">
                     <img src="https://images.unsplash.com/photo-1621849400072-f554417f7051?auto=format&fit=crop&w=800" alt="Levada das 25 Fontes" class="card-image">
-                    
                     <h3 class="card-title">Levada das 25 Fontes</h3>
                     <p class="card-desc">A caminhada mais famosa da ilha através da floresta Laurissilva.</p>
                     <div class="card-meta">
@@ -136,35 +140,27 @@
     </footer>
 
     <script>
-    // --- LÓGICA DO MENU MOBILE ---
     const hamburger = document.querySelector('.hamburger');
     const nav = document.querySelector('.main-nav');
-
     if(hamburger) {
         hamburger.addEventListener('click', () => {
             nav.classList.toggle('active');
         });
     }
 
-    // --- LÓGICA DO DARK MODE ---
     const themeBtn = document.getElementById('theme-toggle');
     const html = document.documentElement;
     const icon = themeBtn.querySelector('i');
-
-    // 1. Verifica se já tinhas guardado a preferência antes
     const savedTheme = localStorage.getItem('theme');
     
     if (savedTheme === 'dark') {
         html.classList.add('dark-mode');
-        icon.classList.replace('fa-moon', 'fa-sun'); // Muda ícone para sol
+        icon.classList.replace('fa-moon', 'fa-sun');
     }
 
-    // 2. Ação ao clicar no botão
     if(themeBtn){
         themeBtn.addEventListener('click', () => {
             html.classList.toggle('dark-mode');
-            
-            // Troca o ícone (Lua <-> Sol) e guarda na memória
             if (html.classList.contains('dark-mode')) {
                 icon.classList.replace('fa-moon', 'fa-sun');
                 localStorage.setItem('theme', 'dark');

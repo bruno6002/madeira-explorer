@@ -28,8 +28,8 @@
         </nav>
         <div class="user-actions">
             <button id="theme-toggle" class="icon-btn"><i class="fa-solid fa-moon"></i></button>
-            <button class="icon-btn"><i class="fa-regular fa-heart"></i></button>
-            <a href="login.html" class="login-btn">Entrar</a>
+            <button class="icon-btn" onclick="adicionarFavorito()"><i class="fa-regular fa-heart"></i></button>
+            <a href="carrinho.html" class="icon-btn" style="text-decoration:none; color:inherit;"><i class="fa-solid fa-cart-shopping"></i></a>
         </div>
     </header>
 
@@ -49,24 +49,22 @@
         <section class="details-content">
             <div style="margin-bottom: 30px;">
                 <h2>Sobre esta atividade</h2>
-                <p>Embarque num catamarã confortável para observar golfinhos e baleias no seu habitat natural. Com sorte, poderá ver tartarugas e desfrutar de um mergulho nas águas cristalinas do Cabo Girão.</p>
+                <p>Embarque num catamarã confortável para observar golfinhos e baleias no seu habitat natural.</p>
             </div>
-
             <div class="highlights" style="margin-bottom: 30px;">
                 <h3>O que está incluído</h3>
                 <ul>
                     <li><i class="fa-solid fa-check"></i> Viagem de Catamarã (3h)</li>
                     <li><i class="fa-solid fa-check"></i> Biólogo Marinho a bordo</li>
-                    <li><i class="fa-solid fa-check"></i> Garantia de avistamento (ou 2ª viagem grátis)</li>
+                    <li><i class="fa-solid fa-check"></i> Garantia de avistamento</li>
                     <li><i class="fa-solid fa-check"></i> Equipamento de Snorkeling</li>
                 </ul>
             </div>
-            
             <div class="faq-section">
                 <h3>Perguntas Frequentes</h3>
                 <details>
                     <summary>Enjoa muito?</summary>
-                    <p>O catamarã é muito estável, mas se costuma enjoar, recomendamos tomar um comprimido 30min antes.</p>
+                    <p>O catamarã é muito estável.</p>
                 </details>
                 <details>
                     <summary>É garantido ver golfinhos?</summary>
@@ -89,7 +87,9 @@
                         <option>2 Adultos</option>
                     </select>
                 </div>
-                <button type="button" class="btn-reserva" style="width: 100%; margin-top: 10px; padding: 15px; font-size: 1.1rem;">Reservar Lugar</button>
+                <button type="button" class="btn-reserva" onclick="adicionarCarrinho()" style="width: 100%; margin-top: 10px; padding: 15px; font-size: 1.1rem;">
+                    Reservar Lugar
+                </button>
             </form>
             <p style="margin-top: 15px; text-align: center; font-size: 0.8rem; opacity: 0.7;"><i class="fa-solid fa-shield-halved"></i> Cancelamento grátis até 24h antes.</p>
         </aside>
@@ -107,6 +107,34 @@
             if (html.classList.contains('dark-mode')) { icon.classList.replace('fa-moon', 'fa-sun'); localStorage.setItem('theme', 'dark'); } 
             else { icon.classList.replace('fa-sun', 'fa-moon'); localStorage.setItem('theme', 'light'); }
         });
+
+        // CARRINHO E FAVORITOS (ESPECÍFICO PARA GOLFINHOS)
+        const infoProduto = {
+            nome: "Observação de Golfinhos",
+            preco: 45,
+            imagem: "https://images.unsplash.com/photo-1548695029-796d19485b01?auto=format&fit=crop&w=800"
+        };
+
+        function adicionarCarrinho() {
+            const inputData = document.querySelector('input[type="date"]');
+            const dataSelecionada = inputData ? inputData.value : "";
+            if(!dataSelecionada) { alert("Por favor, selecione uma data."); return; }
+            let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+            carrinho.push({ nome: infoProduto.nome, preco: infoProduto.preco, imagem: infoProduto.imagem, data: dataSelecionada });
+            localStorage.setItem('carrinho', JSON.stringify(carrinho));
+            const btn = document.querySelector('.btn-reserva');
+            btn.innerText = "Adicionado! ✓"; btn.style.backgroundColor = "#009B4D";
+            setTimeout(() => { btn.innerText = "Reservar Lugar"; btn.style.backgroundColor = ""; }, 2000);
+        }
+
+        function adicionarFavorito() {
+            let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+            if(!favoritos.some(item => item.nome === infoProduto.nome)) {
+                favoritos.push(infoProduto);
+                localStorage.setItem('favoritos', JSON.stringify(favoritos));
+                alert("Adicionado aos Favoritos! ❤️");
+            } else { alert("Já está nos favoritos!"); }
+        }
     </script>
 </body>
 </html>

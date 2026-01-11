@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Favoritos - Madeira Explorer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo-container">
+            <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
+                <i class="fa-solid fa-arrow-left"></i> <span>Voltar</span>
+            </a>
+        </div>
+        <div class="logo-center" style="font-weight:bold; font-size:1.2rem;">Lista de Desejos</div>
+        <div class="user-actions"></div>
+    </header>
+
+    <main class="grid-layout" style="min-height: 60vh;">
+        <div class="full-width">
+            <h1 style="margin-bottom: 20px;">Os seus favoritos</h1>
+            
+            <div id="lista-favoritos" class="products-grid">
+                </div>
+        </div>
+    </main>
+
+    <footer class="main-footer"><p>&copy; 2026 Madeira Explorer</p></footer>
+
+    <script>
+        function carregarFavoritos() {
+            const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+            const lista = document.getElementById('lista-favoritos');
+
+            if (favoritos.length === 0) {
+                lista.innerHTML = '<p class="full-width" style="text-align:center; color:#666;">Ainda não guardou nenhuma experiência.</p>';
+                return;
+            }
+
+            lista.innerHTML = ''; // Limpar
+
+            favoritos.forEach((item, index) => {
+                const card = document.createElement('article');
+                card.className = 'product-card';
+                card.innerHTML = `
+                    <img src="${item.imagem}" class="card-image" style="width:100%; height:200px; object-fit:cover;">
+                    <h3 class="card-title">${item.nome}</h3>
+                    <div class="card-meta">
+                        <span class="price">${item.preco}€</span>
+                        <button onclick="removerFavorito(${index})" style="background:none; border:none; color:red; cursor:pointer;">
+                            <i class="fa-solid fa-heart-crack"></i> Remover
+                        </button>
+                    </div>
+                `;
+                lista.appendChild(card);
+            });
+        }
+
+        function removerFavorito(index) {
+            let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+            favoritos.splice(index, 1);
+            localStorage.setItem('favoritos', JSON.stringify(favoritos));
+            carregarFavoritos();
+        }
+
+        carregarFavoritos();
+    </script>
+</body>
+</html>

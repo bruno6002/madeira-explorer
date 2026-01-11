@@ -18,11 +18,7 @@
                 <span class="font-bold">Voltar</span>
             </a>
         </div>
-
-        <div class="hamburger">
-            <i class="fa-solid fa-bars"></i>
-        </div>
-
+        <div class="hamburger"><i class="fa-solid fa-bars"></i></div>
         <nav class="main-nav">
             <ul>
                 <li><a href="index.html">Início</a></li>
@@ -30,18 +26,14 @@
                 <li><a href="#">Ajuda</a></li>
             </ul>
         </nav>
-
         <div class="user-actions">
-            <button id="theme-toggle" class="icon-btn" aria-label="Alternar Tema">
-                <i class="fa-solid fa-moon"></i>
-            </button>
-            <button class="icon-btn"><i class="fa-regular fa-heart"></i></button>
-            <a href="login.html" class="login-btn">Entrar</a>
+            <button id="theme-toggle" class="icon-btn"><i class="fa-solid fa-moon"></i></button>
+            <button class="icon-btn" onclick="adicionarFavorito()"><i class="fa-regular fa-heart"></i></button>
+            <a href="carrinho.html" class="icon-btn" style="text-decoration:none; color:inherit;"><i class="fa-solid fa-cart-shopping"></i></a>
         </div>
     </header>
 
     <main class="grid-layout">
-        
         <section class="full-width">
             <div class="detail-hero" style="background-image: url('https://images.unsplash.com/photo-1629232386866-248792031a08?auto=format&fit=crop&w=1600&q=80');">
                 <div class="detail-hero-content">
@@ -55,111 +47,95 @@
         </section>
 
         <section class="details-content">
-            
             <div style="margin-bottom: 30px;">
                 <h2>Sobre esta atividade</h2>
-                <p>Assista a um dos nasceres do sol mais bonitos do mundo acima das nuvens. Esta excursão leva-o ao terceiro pico mais alto da ilha (1818m) com todo o conforto de um transfer privado. Ideal para fotógrafos e amantes da natureza.</p>
+                <p>Assista a um dos nasceres do sol mais bonitos do mundo acima das nuvens. Esta excursão leva-o ao terceiro pico mais alto da ilha (1818m) com todo o conforto de um transfer privado.</p>
             </div>
-
             <div class="highlights" style="margin-bottom: 30px;">
                 <h3>O que está incluído</h3>
                 <ul>
-                    <li><i class="fa-solid fa-check"></i> Recolha no Hotel (Funchal)</li>
+                    <li><i class="fa-solid fa-check"></i> Recolha no Hotel</li>
                     <li><i class="fa-solid fa-check"></i> Guia Certificado</li>
                     <li><i class="fa-solid fa-check"></i> Café ou Chá Quente</li>
-                    <li><i class="fa-solid fa-check"></i> Seguros Incluídos</li>
-                    <li><i class="fa-solid fa-check"></i> Mantas para o frio</li>
                     <li><i class="fa-solid fa-check"></i> Fotos digitais</li>
                 </ul>
             </div>
-
             <div class="faq-section">
                 <h3>Perguntas Frequentes</h3>
-                
                 <details>
                     <summary>O que devo levar vestido?</summary>
-                    <p>Recomendamos várias camadas de roupa (estilo cebola). No topo da montanha pode estar muito frio (0-5ºC) mesmo no verão. Leve um gorro!</p>
+                    <p>Recomendamos várias camadas de roupa. Leve um gorro!</p>
                 </details>
-
                 <details>
                     <summary>A caminhada é difícil?</summary>
-                    <p>Não. O transfer deixa-nos perto do miradouro. A caminhada é curta e acessível para a maioria das pessoas.</p>
-                </details>
-
-                <details>
-                    <summary>E se estiver nublado?</summary>
-                    <p>Muitas vezes estamos acima das nuvens! Se o tempo estiver mau e não for seguro, oferecemos reagendamento gratuito ou reembolso total.</p>
+                    <p>Não. O transfer deixa-nos perto do miradouro.</p>
                 </details>
             </div>
         </section>
 
         <aside class="booking-sidebar">
             <span class="price-tag">35€ <small>/pessoa</small></span>
-            
             <form class="booking-form">
                 <div class="input-group">
                     <label>Data</label>
                     <input type="date" required style="background: var(--bg-primary);">
                 </div>
-                
                 <div class="input-group">
                     <label>Participantes</label>
                     <select style="background: var(--bg-primary); padding: 12px; width: 100%; border-radius: 8px; border: 2px solid #ccc;">
                         <option>1 Adulto</option>
                         <option>2 Adultos</option>
-                        <option>3 Adultos</option>
                     </select>
                 </div>
-
-                <button type="button" class="btn-reserva" style="width: 100%; margin-top: 10px; padding: 15px; font-size: 1.1rem;">
+                <button type="button" class="btn-reserva" onclick="adicionarCarrinho()" style="width: 100%; margin-top: 10px; padding: 15px; font-size: 1.1rem;">
                     Reservar Lugar
                 </button>
             </form>
-            
-            <p style="margin-top: 15px; text-align: center; font-size: 0.8rem; opacity: 0.7;">
-                <i class="fa-solid fa-shield-halved"></i> Cancelamento grátis até 24h antes.
-            </p>
+            <p style="margin-top: 15px; text-align: center; font-size: 0.8rem; opacity: 0.7;"><i class="fa-solid fa-shield-halved"></i> Cancelamento grátis até 24h antes.</p>
         </aside>
-
     </main>
 
-    <footer class="main-footer">
-        <p>&copy; 2026 Madeira Explorer</p>
-    </footer>
+    <footer class="main-footer"><p>&copy; 2026 Madeira Explorer</p></footer>
 
     <script>
-        // Menu Mobile
-        const hamburger = document.querySelector('.hamburger');
-        const nav = document.querySelector('.main-nav');
-        if(hamburger) {
-            hamburger.addEventListener('click', () => {
-                nav.classList.toggle('active');
-            });
-        }
-
-        // Dark Mode Logic
-        const themeBtn = document.getElementById('theme-toggle');
-        const html = document.documentElement;
-        const icon = themeBtn.querySelector('i');
-
-        // Verificar preferência guardada
+        // DARK MODE + MENU
+        const hamburger = document.querySelector('.hamburger'); const nav = document.querySelector('.main-nav');
+        if(hamburger) { hamburger.addEventListener('click', () => { nav.classList.toggle('active'); }); }
+        const themeBtn = document.getElementById('theme-toggle'); const html = document.documentElement; const icon = themeBtn.querySelector('i');
         const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-            html.classList.add('dark-mode');
-            icon.classList.replace('fa-moon', 'fa-sun');
+        if (savedTheme === 'dark') { html.classList.add('dark-mode'); icon.classList.replace('fa-moon', 'fa-sun'); }
+        themeBtn.addEventListener('click', () => { html.classList.toggle('dark-mode');
+            if (html.classList.contains('dark-mode')) { icon.classList.replace('fa-moon', 'fa-sun'); localStorage.setItem('theme', 'dark'); } 
+            else { icon.classList.replace('fa-sun', 'fa-moon'); localStorage.setItem('theme', 'light'); }
+        });
+
+        // CARRINHO E FAVORITOS (ESPECÍFICO PARA O ARIEIRO)
+        const infoProduto = {
+            nome: "Nascer do Sol no Pico do Arieiro",
+            preco: 35,
+            imagem: "https://images.unsplash.com/photo-1629232386866-248792031a08?auto=format&fit=crop&w=800"
+        };
+
+        function adicionarCarrinho() {
+            const inputData = document.querySelector('input[type="date"]');
+            const dataSelecionada = inputData ? inputData.value : "";
+            if(!dataSelecionada) { alert("Por favor, selecione uma data."); return; }
+            let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+            carrinho.push({ nome: infoProduto.nome, preco: infoProduto.preco, imagem: infoProduto.imagem, data: dataSelecionada });
+            localStorage.setItem('carrinho', JSON.stringify(carrinho));
+            const btn = document.querySelector('.btn-reserva');
+            btn.innerText = "Adicionado! ✓"; btn.style.backgroundColor = "#009B4D";
+            setTimeout(() => { btn.innerText = "Reservar Lugar"; btn.style.backgroundColor = ""; }, 2000);
         }
 
-        themeBtn.addEventListener('click', () => {
-            html.classList.toggle('dark-mode');
-            if (html.classList.contains('dark-mode')) {
-                icon.classList.replace('fa-moon', 'fa-sun');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                icon.classList.replace('fa-sun', 'fa-moon');
-                localStorage.setItem('theme', 'light');
-            }
-        });
+        function adicionarFavorito() {
+            let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+            if(!favoritos.some(item => item.nome === infoProduto.nome)) {
+                favoritos.push(infoProduto);
+                localStorage.setItem('favoritos', JSON.stringify(favoritos));
+                alert("Adicionado aos Favoritos! ❤️");
+            } else { alert("Já está nos favoritos!"); }
+        }
     </script>
-
 </body>
 </html>
