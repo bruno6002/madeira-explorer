@@ -514,3 +514,39 @@ details p {
         border-radius: 8px;
     }
 }
+/* --- FORÇAR CORES DO MODO ESCURO (Adiciona isto no fim do style.css) --- */
+
+html.dark-mode {
+    /* Define explicitamente que este elemento deve usar o esquema dark */
+    color-scheme: dark;
+    
+    /* Força as variáveis a assumirem os valores escuros manualmente */
+    --bg-primary: #121212;
+    --bg-secondary: #1e1e1e;
+    --text-main: #e0e0e0;
+    
+    /* Ajuste para o texto das descrições ficar legível */
+    --text-muted: #aaaaaa;
+}
+
+/* Garante que os cards e inputs também mudam */
+html.dark-mode .product-card,
+html.dark-mode .booking-sidebar,
+html.dark-mode .login-card,
+html.dark-mode details {
+    background-color: var(--bg-secondary);
+    color: var(--text-main);
+}
+
+html.dark-mode .card-desc,
+html.dark-mode p {
+    color: #cccccc;
+}
+
+/* Garante que o input de pesquisa e form não ficam brancos */
+html.dark-mode input, 
+html.dark-mode select {
+    background-color: #2c2c2c;
+    color: white;
+    border-color: #444;
+}
