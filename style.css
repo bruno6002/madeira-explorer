@@ -319,3 +319,79 @@ html.dark-mode select {
 html.dark-mode #theme-toggle i {
     color: var(--gold);
 }
+
+
+/* --- MELHORIAS VISUAIS DA PÁGINA DE DETALHES --- */
+
+/* Imagem de Capa Estilo Cinema */
+.detail-hero {
+    height: 60vh; /* Ocupa 60% da altura do ecrã */
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    position: relative;
+}
+
+/* Título sobreposto na imagem (Opcional, estilo moderno) */
+.detail-hero-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    border-radius: 0 0 20px 20px;
+}
+
+/* Ajustes da Barra Lateral de Reserva */
+.booking-sidebar {
+    background-color: var(--bg-secondary);
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.price-tag {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    display: block;
+}
+
+.price-tag small {
+    font-size: 1rem;
+    font-weight: normal;
+    color: var(--text-main);
+    opacity: 0.7;
+}
+
+/* Lista de "Incluído" mais bonita */
+.highlights ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Duas colunas */
+    gap: 10px;
+}
+
+.highlights li {
+    background-color: var(--bg-primary);
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.highlights li i {
+    color: #009B4D; /* Verde check */
+    margin-right: 8px;
+}
+
+/* Responsividade Extra */
+@media (width < 768px) {
+    .detail-hero { height: 300px; }
+    .highlights ul { grid-template-columns: 1fr; }
+}

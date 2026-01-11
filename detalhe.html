@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nascer do Sol no Arieiro - Detalhes</title>
+    <title>Nascer do Sol no Arieiro - Madeira Explorer</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -12,37 +12,64 @@
     <header class="main-header">
         <div class="logo-container">
             <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
-                <i class="fa-solid fa-arrow-left"></i>
-                <span>Voltar</span>
+                <div style="background: var(--bg-secondary); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </div>
+                <span class="font-bold">Voltar</span>
             </a>
         </div>
+
+        <div class="hamburger">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="index.html#experiencias">Explorar</a></li>
+                <li><a href="#">Ajuda</a></li>
+            </ul>
+        </nav>
+
         <div class="user-actions">
+            <button id="theme-toggle" class="icon-btn" aria-label="Alternar Tema">
+                <i class="fa-solid fa-moon"></i>
+            </button>
             <button class="icon-btn"><i class="fa-regular fa-heart"></i></button>
+            <a href="login.html" class="login-btn">Entrar</a>
         </div>
     </header>
 
     <main class="grid-layout">
         
-        <section class="gallery full-width">
-            <img src="https://images.unsplash.com/photo-1629232386866-248792031a08?auto=format&fit=crop&w=1200" alt="Vista do Pico do Arieiro">
+        <section class="full-width">
+            <div class="detail-hero" style="background-image: url('https://images.unsplash.com/photo-1629232386866-248792031a08?auto=format&fit=crop&w=1600&q=80');">
+                <div class="detail-hero-content">
+                    <h1 style="font-size: 2.5rem; margin-bottom: 10px; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">Nascer do Sol no Pico do Arieiro</h1>
+                    <div style="display: flex; gap: 20px; align-items: center;">
+                        <span><i class="fa-solid fa-location-dot"></i> Santana, Madeira</span>
+                        <span><i class="fa-solid fa-star text-gold"></i> 5.0 (128 avaliações)</span>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section class="details-content">
-            <h1>Nascer do Sol no Pico do Arieiro</h1>
-            <div class="rating">
-                <i class="fa-solid fa-star text-gold"></i> 5.0 <span>(128 avaliações)</span>
-            </div>
             
-            <p class="description">
-                Assista a um dos nasceres do sol mais bonitos do mundo acima das nuvens. Esta excursão leva-o ao terceiro pico mais alto da ilha (1818m) com todo o conforto de um transfer privado.
-            </p>
+            <div style="margin-bottom: 30px;">
+                <h2>Sobre esta atividade</h2>
+                <p>Assista a um dos nasceres do sol mais bonitos do mundo acima das nuvens. Esta excursão leva-o ao terceiro pico mais alto da ilha (1818m) com todo o conforto de um transfer privado. Ideal para fotógrafos e amantes da natureza.</p>
+            </div>
 
-            <div class="highlights">
+            <div class="highlights" style="margin-bottom: 30px;">
                 <h3>O que está incluído</h3>
                 <ul>
-                    <li><i class="fa-solid fa-check"></i> Recolha no Hotel</li>
+                    <li><i class="fa-solid fa-check"></i> Recolha no Hotel (Funchal)</li>
                     <li><i class="fa-solid fa-check"></i> Guia Certificado</li>
                     <li><i class="fa-solid fa-check"></i> Café ou Chá Quente</li>
+                    <li><i class="fa-solid fa-check"></i> Seguros Incluídos</li>
+                    <li><i class="fa-solid fa-check"></i> Mantas para o frio</li>
+                    <li><i class="fa-solid fa-check"></i> Fotos digitais</li>
                 </ul>
             </div>
 
@@ -51,7 +78,7 @@
                 
                 <details>
                     <summary>O que devo levar vestido?</summary>
-                    <p>Recomendamos várias camadas de roupa (estilo cebola). No topo da montanha pode estar muito frio (0-5ºC) mesmo no verão.</p>
+                    <p>Recomendamos várias camadas de roupa (estilo cebola). No topo da montanha pode estar muito frio (0-5ºC) mesmo no verão. Leve um gorro!</p>
                 </details>
 
                 <details>
@@ -61,30 +88,37 @@
 
                 <details>
                     <summary>E se estiver nublado?</summary>
-                    <p>Muitas vezes estamos acima das nuvens! Se o tempo estiver mau, oferecemos reagendamento gratuito.</p>
+                    <p>Muitas vezes estamos acima das nuvens! Se o tempo estiver mau e não for seguro, oferecemos reagendamento gratuito ou reembolso total.</p>
                 </details>
             </div>
         </section>
 
         <aside class="booking-sidebar">
-            <div class="price-tag">
-                <span>35€</span> <small>/pessoa</small>
-            </div>
+            <span class="price-tag">35€ <small>/pessoa</small></span>
             
             <form class="booking-form">
-                <label>Data</label>
-                <input type="date" required>
+                <div class="input-group">
+                    <label>Data</label>
+                    <input type="date" required style="background: var(--bg-primary);">
+                </div>
                 
-                <label>Participantes</label>
-                <select>
-                    <option>1 Adulto</option>
-                    <option>2 Adultos</option>
-                </select>
+                <div class="input-group">
+                    <label>Participantes</label>
+                    <select style="background: var(--bg-primary); padding: 12px; width: 100%; border-radius: 8px; border: 2px solid #ccc;">
+                        <option>1 Adulto</option>
+                        <option>2 Adultos</option>
+                        <option>3 Adultos</option>
+                    </select>
+                </div>
 
-                <button type="button" class="btn-reserva">Adicionar ao Carrinho</button>
+                <button type="button" class="btn-reserva" style="width: 100%; margin-top: 10px; padding: 15px; font-size: 1.1rem;">
+                    Reservar Lugar
+                </button>
             </form>
             
-            <p class="disclaimer"><i class="fa-solid fa-shield-halved"></i> Cancelamento grátis até 24h.</p>
+            <p style="margin-top: 15px; text-align: center; font-size: 0.8rem; opacity: 0.7;">
+                <i class="fa-solid fa-shield-halved"></i> Cancelamento grátis até 24h antes.
+            </p>
         </aside>
 
     </main>
@@ -92,6 +126,40 @@
     <footer class="main-footer">
         <p>&copy; 2026 Madeira Explorer</p>
     </footer>
+
+    <script>
+        // Menu Mobile
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('.main-nav');
+        if(hamburger) {
+            hamburger.addEventListener('click', () => {
+                nav.classList.toggle('active');
+            });
+        }
+
+        // Dark Mode Logic
+        const themeBtn = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        const icon = themeBtn.querySelector('i');
+
+        // Verificar preferência guardada
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            html.classList.add('dark-mode');
+            icon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        themeBtn.addEventListener('click', () => {
+            html.classList.toggle('dark-mode');
+            if (html.classList.contains('dark-mode')) {
+                icon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                icon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
 
 </body>
 </html>
