@@ -395,3 +395,72 @@ html.dark-mode #theme-toggle i {
     .detail-hero { height: 300px; }
     .highlights ul { grid-template-columns: 1fr; }
 }
+
+
+/* --- MELHORIA DA BARRA DE UTILIZADOR (HEADER) --- */
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espaço entre os ícones */
+}
+
+/* Estilo para os botões de ícone (Lua, Coração, Carrinho) */
+.icon-btn {
+    background: transparent; /* Remove fundo branco */
+    border: none;            /* Remove bordas cinzentas */
+    cursor: pointer;
+    font-size: 1.2rem;       /* Tamanho do ícone */
+    color: var(--text-main); /* Usa a cor do texto do tema (preto ou branco) */
+    padding: 8px;            /* Área de clique maior */
+    border-radius: 50%;      /* Fica redondo ao passar o rato */
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+
+/* Efeito ao passar o rato nos ícones */
+.icon-btn:hover {
+    background-color: var(--bg-secondary); /* Fundo subtil */
+    color: var(--accent-color);            /* Fica azul */
+    transform: scale(1.1);                 /* Cresce ligeiramente */
+}
+
+/* Estilo do botão "Entrar" */
+.login-btn {
+    background-color: var(--accent-color);
+    color: white !important; /* Força texto branco mesmo em dark mode */
+    padding: 8px 20px;
+    border-radius: 25px;     /* Arredondado (Pill shape) */
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, transform 0.2s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.login-btn:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* --- AJUSTES ESPECÍFICOS PARA O DARK MODE --- */
+/* Garante que os ícones ficam brancos no fundo preto */
+html.dark-mode .icon-btn {
+    color: #e0e0e0;
+}
+
+html.dark-mode .icon-btn:hover {
+    background-color: #333;
+    color: var(--gold); /* No escuro, o hover fica dourado/amarelo */
+}
+
+/* Corrige o botão de tema especificamente */
+#theme-toggle {
+    background: transparent !important;
+    border: 1px solid var(--bg-secondary); /* Borda subtil */
+}
