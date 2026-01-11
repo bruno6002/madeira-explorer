@@ -12,6 +12,16 @@
     --gold: #F2A900;
 }
 
+/* Forçar modo escuro quando a classe .dark-mode está ativa */
+html.dark-mode {
+    color-scheme: dark;
+}
+
+/* (Opcional) Estilo para o botão mudar quando está ativo */
+html.dark-mode #theme-toggle i {
+    color: var(--gold); /* A lua fica dourada */
+}
+
 /* Reset básico */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 

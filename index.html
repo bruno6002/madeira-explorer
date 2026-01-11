@@ -32,6 +32,10 @@
         </nav>
 
         <div class="user-actions">
+            <button id="theme-toggle" class="icon-btn" aria-label="Alternar Tema">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+    
             <button class="icon-btn" aria-label="Favoritos"><i class="fa-regular fa-heart"></i></button>
             <a href="login.html" class="login-btn">Entrar</a>
         </div>
@@ -127,13 +131,43 @@
     </footer>
 
     <script>
-        const hamburger = document.querySelector('.hamburger');
-        const nav = document.querySelector('.main-nav');
+    // --- LÓGICA DO MENU MOBILE ---
+    const hamburger = document.querySelector('.hamburger');
+    const nav = document.querySelector('.main-nav');
 
+    if(hamburger) {
         hamburger.addEventListener('click', () => {
             nav.classList.toggle('active');
         });
-    </script>
+    }
+
+    // --- LÓGICA DO DARK MODE ---
+    const themeBtn = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+    const icon = themeBtn.querySelector('i');
+
+    // 1. Verifica se já tinhas guardado a preferência antes
+    const savedTheme = localStorage.getItem('theme');
+    
+    if (savedTheme === 'dark') {
+        html.classList.add('dark-mode');
+        icon.classList.replace('fa-moon', 'fa-sun'); // Muda ícone para sol
+    }
+
+    // 2. Ação ao clicar no botão
+    themeBtn.addEventListener('click', () => {
+        html.classList.toggle('dark-mode');
+        
+        // Troca o ícone (Lua <-> Sol) e guarda na memória
+        if (html.classList.contains('dark-mode')) {
+            icon.classList.replace('fa-moon', 'fa-sun');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            icon.classList.replace('fa-sun', 'fa-moon');
+            localStorage.setItem('theme', 'light');
+        }
+    });
+</script>
 
 </body>
 </html>
